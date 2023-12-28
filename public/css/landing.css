@@ -1,0 +1,120 @@
+html {
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+body {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: white;
+    background-image: url("/img/dots.png") !important;
+}
+#app {
+    flex: 1 0 auto;
+}
+b {
+    font-weight: bold !important;
+}
+.navbar-bg {
+    background-color: #002B5B !important;
+}
+
+.footext {
+    color: rgb(215, 215, 215) !important;
+    text-decoration: none !important;
+}
+
+.header-bg {
+    background-color: #159895;
+}
+
+.button-bg {
+    background-color: #002B5B !important;
+    color: white !important;
+}
+.button-bg:hover {
+    background-color: #1a5f7a !important;
+    color: white;
+}
+.navbar-toggler {
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+.text-subtitle {
+    color: #159895 !important;
+}
+.button-bg {
+    background-color: #002b5b !important;
+    color: white !important;
+}
+.button-bg:hover {
+    background-color: #1a5f7a !important;
+    color: white;
+}
+.card {
+    background-color: rgba(87, 197, 182, .1) !important;
+}
+.cardimg {
+    padding: 10px 10px 5px 10px;
+    border-radius: 15px !important;
+    object-fit: cover !important;
+
+
+}
+.dropdown-menu {
+    background-color: #1a5f7a !important;
+    color: white !important;
+}
+.dropdown-item {
+    color: white !important;
+}
+.dropdown-item:hover  {
+    background-color: #159895 !important;
+    color: white !important;
+}
+
+.table-continer {
+    padding: 50px 50px 50px 50px;
+    border-radius: 20px;
+    background: rgba(87, 197, 182, .1) !important;
+}
+
+.image-mixer {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: 75vh;
+    width: auto !important;
+}
+
+.backspan {
+    text-decoration: none;
+    color: #159895;
+    padding-bottom:3px;
+}
+
+.material-subhead {
+    color: #1a5f7a !important;
+}
+.noselect {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #cc0000;
+}
+#pdf-js-viewer {
+    width: 100%;
+    height: 80vh !important;
+}
+/* Default styles for desktop */
+#adobe-dc-view {
+    width: 80vw;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    #adobe-dc-view {
+        width: 100vw;
+    }
+}
+
