@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Study_guide;
 use App\Models\Grade;
 use App\Models\Subject;
+use Illuminate\Support\Facades\Storage;
 class Study_guidesController extends Controller
 {
     public function list(Request $request) {
@@ -44,6 +45,49 @@ class Study_guidesController extends Controller
         $grade = $grade->grade;
 
         return view('app.view')->with(['study_guide' => $study_guide, 'grade' => $grade, 'subject' => $subject]);;
+    }
+    public function editview(Request $request) {
+        $data = request()->validate([
+            'guide_id' => 'required'
+        ]);
+
+        $studyGuide = Study_guide::find($data['guide_id']);
+        return view('editview', compact('studyGuide'));
+    }
+    public function edit(Request $request, $id) {
+        $studyGuide = Study_guide::find($id);
+
+        // Update the fields
+        $studyGuide->title = $request->input('name');
+        $studyGuide->imageLink = $request->input('image');
+        $studyGuide->subject_id = $request->input('subject');
+        $studyGuide->grade_id = $request->input('grade');
+
+        // Handle updating the document file if provided
+        if ($request->hasFile('file')) {
+            $filePath = $request->file('file')->store('uploads', 'public');
+            $studyGuide->content = $filePath;
+        }
+
+        $studyGuide->save();
+
+        return redirect('/dash');
+    }
+    public function delete($id) {
+        $studyGuide = Study_guide::find($id);
+
+        $studyGuide = Study_guide::find($id);
+
+
+        // Delete the associated file (if needed)
+        // Note: Adjust this part based on how you store and manage files
+        if (Storage::exists($studyGuide->content)) {
+            Storage::delete($studyGuide->content);
+        }
+
+        $studyGuide->delete();
+
+        return redirect('/dash');
     }
 
 }
