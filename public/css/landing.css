@@ -5,8 +5,7 @@ body {
     height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    background-color: white;
-    background-image: url("/img/dots.png") !important;
+    background-color: white !important;
 }
 #app {
     flex: 1 0 auto;
