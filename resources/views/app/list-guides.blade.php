@@ -12,8 +12,16 @@
                         <div class="card-body">
                             <h2 class="h5 mb-3 card-title lh-base fw-bold">{{ $studyGuide->title }}</h2>
                             <div class="row align-items-center">
-                                <div class="order-2 order-lg-1 col-lg-6">
+                                <div class="order-2 order-lg-1 col-lg-6 d-flex">
                                     <a href="/view-guide/{{$studyGuide->id}}"><button class="button-bg btn btn-info">Megnézem</button></a>
+                                    @if(Auth::user())
+                                        <form method="POST" action="/editview">
+                                            @csrf
+                                            <input name="guide_id" type="hidden" value="{{$studyGuide->id}}">
+                                            <button class="ml-3 btn btn-outline-warning">Szerkesztés</button>
+                                        </form>
+
+                                    @endif
                                 </div>
                             </div>
                         </div>
