@@ -11,6 +11,14 @@
          </div>
      </div>
      <h1 class="text-subtitle">Tantárgyak</h1>
+     @if(session('showcd'))
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script defer>
+             $(document).ready(function(){
+                 $('#staticBackdrop2').modal('show'); // Replace 'yourModalId' with your actual modal ID
+             });
+         </script>
+     @endif
      @if(session('showModal'))
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <script defer>
@@ -19,6 +27,43 @@
              });
          </script>
      @endif
+     <!-- Modal -->
+     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h1 class="modal-title fs-4" id="staticBackdropLabel">BUÉK</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body">
+                     <pre class="font-monospace buek">
+                                    .
+              . .                     -:-             .  .  .
+            .'.:,'.        .  .  .     ' .           . \ | / .
+            .'.;.`.       ._. ! ._.       \          .__\:/__.
+             `,:.'         ._\!/_.                     .';`.      . ' .
+             ,'             . ! .        ,.,      ..======..       .:.
+            ,                 .         ._!_.     ||::: : | .        ',
+     .====.,                  .           ;  .~.===: : : :|   ..===.
+     |.::'||      .=====.,    ..=======.~,   |"|: :|::::::|   ||:::|=====|
+  ___| :::|!__.,  |:::::|!_,   |: :: ::|"|l_l|"|:: |:;;:::|___!| ::|: : :|
+ |: :|::: |:: |!__|; :: |: |===::: :: :|"||_||"| : |: :: :|: : |:: |:::::|
+ |:::| _::|: :|:::|:===:|::|:::|:===F=:|"!/|\!"|::F|:====:|::_:|: :|::__:|
+ !_[]![_]_!_[]![]_!_[__]![]![_]![_][I_]!//_:_\\![]I![_][_]!_[_]![]_!_[__]!
+ -----------------------------------"---''''```---"-----------------------
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |= _ _:_ _ =| _ _ _ _ _ _ _ _ _ _ _ _
+               Boldog Új Évet Kíván  |=    :    =|  A Hónap Híre Tudástár
+_____________________________________L___________J________________________
+--------------------------------------------------------------------------
+
+                     </pre>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Bezárás</button>
+                 </div>
+             </div>
+         </div>
+     </div>
      <!-- Modal -->
      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
          <div class="modal-dialog">
