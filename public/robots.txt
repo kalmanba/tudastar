@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+Disallow: /storage/uploads/
+Sitemap: https://learn.honaphire.net/sitemap.xml
