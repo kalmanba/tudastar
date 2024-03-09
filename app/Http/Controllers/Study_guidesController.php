@@ -7,6 +7,7 @@ use App\Models\Study_guide;
 use App\Models\Grade;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 class Study_guidesController extends Controller
 {
     public function list(Request $request) {
@@ -65,13 +66,22 @@ class Study_guidesController extends Controller
 
         // Handle updating the document file if provided
         if ($request->hasFile('file')) {
-            $filePath = $request->file('file')->store('uploads', 'public');
-            $studyGuide->content = $filePath;
+            $oldfilePath = storage_path('app/public/' . $studyGuide['content']);
+
+            // Check if the file exists before deleting
+            if (File::exists($oldfilePath)) {
+
+                File::delete($oldfilePath);
+
+                $filePath = $request->file('file')->store('uploads', 'public');
+                $studyGuide->content = $filePath;
+                $studyGuide->save();
+            } else {
+                return redirect('/');
+            }
         }
 
-        $studyGuide->save();
-
-        return redirect('/dash');
+        return redirect('/view-guide/'. $id);
     }
     public function delete($id) {
         $studyGuide = Study_guide::find($id);
