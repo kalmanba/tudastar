@@ -4,7 +4,7 @@
  <div class="container">
      <div class="row">
          <div class="col-12">
-             <h1 class="text-info-emphasis">Üdv a tudástárbasn!</h1>
+             <h1 class="text-info-emphasis">Üdv a tudástárban!</h1>
              <p>Ezen tudástár célja, hogy az itt felsorolt középiskolai tantárgyak elsajátításást segítse. Az itt található összefoglalók és segédletek összessége (remélhetőleg) tartalmazza az adott témakör elsajátításához szükséges anyagot. A kártyák segítségével válaszd ki azt a tantárgyat és évfolyamot ami érdekel, és nézz körül milyen anyagok állnak rendelkezésre.</p>
              <p>Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
                  <a class="text-decoration-none" target="_blank" href="https://buymeacoffee.com/hhtudastar"><span class="rainbow_text_animated">támogatását</span></a>.</p>
@@ -27,43 +27,6 @@
              });
          </script>
      @endif
-     <!-- Modal -->
-     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h1 class="modal-title fs-4" id="staticBackdropLabel">BUÉK</h1>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
-                 <div class="modal-body">
-                     <pre class="font-monospace buek">
-                                    .
-              . .                     -:-             .  .  .
-            .'.:,'.        .  .  .     ' .           . \ | / .
-            .'.;.`.       ._. ! ._.       \          .__\:/__.
-             `,:.'         ._\!/_.                     .';`.      . ' .
-             ,'             . ! .        ,.,      ..======..       .:.
-            ,                 .         ._!_.     ||::: : | .        ',
-     .====.,                  .           ;  .~.===: : : :|   ..===.
-     |.::'||      .=====.,    ..=======.~,   |"|: :|::::::|   ||:::|=====|
-  ___| :::|!__.,  |:::::|!_,   |: :: ::|"|l_l|"|:: |:;;:::|___!| ::|: : :|
- |: :|::: |:: |!__|; :: |: |===::: :: :|"||_||"| : |: :: :|: : |:: |:::::|
- |:::| _::|: :|:::|:===:|::|:::|:===F=:|"!/|\!"|::F|:====:|::_:|: :|::__:|
- !_[]![_]_!_[]![]_!_[__]![]![_]![_][I_]!//_:_\\![]I![_][_]!_[_]![]_!_[__]!
- -----------------------------------"---''''```---"-----------------------
- _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |= _ _:_ _ =| _ _ _ _ _ _ _ _ _ _ _ _
-               Boldog Új Évet Kíván  |=    :    =|  A Hónap Híre Tudástár
-_____________________________________L___________J________________________
---------------------------------------------------------------------------
-
-                     </pre>
-                 </div>
-                 <div class="modal-footer">
-                     <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Bezárás</button>
-                 </div>
-             </div>
-         </div>
-     </div>
      <!-- Modal -->
      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
          <div class="modal-dialog">
