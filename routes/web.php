@@ -36,6 +36,10 @@ Route::get('/ASZF', function () {
 Route::get('/copyright', function () {
    return view('about.copyright');
 });
+Route::get('/donate', function () {
+    return view('about.support');
+});
+
 
 Route::post('/newguide', [App\Http\Controllers\DashController::class, 'upload'])->middleware('auth');
 Route::post('/editview', [App\Http\Controllers\Study_guidesController::class, 'editview'])->middleware('auth');

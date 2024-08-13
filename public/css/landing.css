@@ -120,3 +120,14 @@ b {
     font-size: 0.7rem !important;
 }
 
+.qr-code-container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.qr-code {
+    width: 100%;
+    max-width: 351px;
+    height: auto;
+}
+
