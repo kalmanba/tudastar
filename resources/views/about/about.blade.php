@@ -10,7 +10,7 @@
                     <div class="col-lg-8 fs-5">
                         <p>Ezen tudástár célja, hogy az itt felsorolt középiskolai tantárgyak elsajátításást segítse. Az itt található összefoglalók és segédletek összessége (remélhetőleg) tartalmazza az adott témakör elsajátításához szükséges anyagot. A kártyák segítségével válaszd ki azt a tantárgyat és évfolyamot ami érdekel, és nézz körül milyen anyagok állnak rendelkezésre.</p>
                         <p class="fw-bold">Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
-                            <a class="text-decoration-none" target="_blank" href="https://buymeacoffee.com/hhtudastar"><span class="rainbow_text_animated">támogatását</span></a>.</p>
+                            <a class="text-decoration-none" href="/donate"><span class="rainbow_text_animated">támogatását</span></a>.</p>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@
                         <p class="lead">
                             Támogasd a Tudástárt közvetlenül bankkártyával, a Buymeacoffee.com oldalon keresztül.
                         </p>
-                        <a class="mb-4" href="https://www.buymeacoffee.com/hhtudastar"><img lass="mb-4" src="https://img.buymeacoffee.com/button-api/?text=Vegyél egy teát&emoji=🫖&slug=hhtudastar&button_colour=40DCA5&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" /></a>
+                        <a target="_blank" class="mb-4" href="https://www.buymeacoffee.com/hhtudastar"><img lass="mb-4" src="https://img.buymeacoffee.com/button-api/?text=Vegyél egy teát&emoji=🫖&slug=hhtudastar&button_colour=40DCA5&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" /></a>
                     </div>
                 </div>
             </div>
