@@ -24,7 +24,11 @@ class Study_guidesController extends Controller
 
         $studyGuides = Study_guide::where('subject_id', $data['subject_id'])
             ->where('grade_id', $data['grade_id'])
-            ->get();
+            ->orderByRaw('category IS NULL DESC, category ASC')
+            ->orderBy('created_at', 'asc')
+            ->get()
+            ->groupBy('category');
+
 
         if ($studyGuides->isNotEmpty()) {
             return view('app.list-guides')->with(['studyGuides' => $studyGuides, 'grade' => $grade, 'subject' => $subject, 'subjectid' => $data['subject_id']]);
