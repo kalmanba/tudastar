@@ -17,11 +17,10 @@
 
                                     <div class="col-md-6">
                                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $studyGuide->title }}" required autocomplete="name" autofocus>
-
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                <strong>{{ $message }}</strong>
+            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -31,21 +30,48 @@
 
                                     <div class="col-md-6">
                                         <input id="image" type="text" class="form-control @error('name') is-invalid @enderror" name="image" value="{{ $studyGuide->imageLink }}" required autocomplete="image" autofocus>
-
                                         @error('image')
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                <strong>{{ $message }}</strong>
+            </span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
+                                    <label for="category" class="col-md-4 col-form-label text-md-end">Kategória</label>
+
+                                    <div class="col-md-6">
+                                        <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ $studyGuide->category }}" autocomplete="category" autofocus>
+                                    </div>
+                                </div>
+
+                                <!-- Pdf file upload and delete checkbox -->
+                                <div class="row">
                                     <label for="file" class="col-md-4 col-form-label text-md-end">Pdf fájl</label>
 
                                     <div class="col-md-6">
                                         <div class="input-group mb-3">
                                             <input type="file" name="file" class="form-control" id="inputGroupFile02">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="delete_pdf" id="delete_pdf">
+                                            <label class="form-check-label" for="delete_pdf">Delete current PDF file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- HTML file upload and delete checkbox -->
+                                <div class="row mb-3">
+                                    <label for="docx" class="col-md-4 col-form-label text-md-end">Htm fájl</label>
+
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <input type="file" name="docx" class="form-control" id="inputGroupFile02">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="delete_htm" id="delete_htm">
+                                            <label class="form-check-label" for="delete_htm">Delete current HTML file</label>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +101,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
@@ -84,6 +109,7 @@
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                     <form method="POST" action="/logout">

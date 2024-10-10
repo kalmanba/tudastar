@@ -41,6 +41,15 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label for="category" class="col-md-4 col-form-label text-md-end">Kategória</label>
+
+                                <div class="col-md-6">
+                                    <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}"  autocomplete="category" autofocus>
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label for="file" class="col-md-4 col-form-label text-md-end">Pdf fájl</label>
 
                                 <div class="col-md-6">
@@ -50,8 +59,20 @@
                                 </div>
                             </div>
 
+
+
                             <div class="row mb-3">
-                                <label for="subject" class="col-md-4 col-form-label text-md-end">Tantárgy</label>
+                                <label for="docx" class="col-md-4 col-form-label text-md-end">Htm fájl</label>
+
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <input type="file" name="docx" class="form-control" id="inputGroupFile02">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="subject" class="col-md-4 col-form-l abel text-md-end">Tantárgy</label>
 
                                 <div class="col-md-6">
                                     <select class="dropdown-toggle" name="subject" id="subject">

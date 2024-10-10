@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('study_guides', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
+            $table->string('content')->nullable();
             $table->string('imageLink');
             $table->string('subject_id');
             $table->string('grade_id');

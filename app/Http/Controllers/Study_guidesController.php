@@ -8,6 +8,9 @@ use App\Models\Grade;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\Shared\ZipArchive;
+
 class Study_guidesController extends Controller
 {
     public function list(Request $request) {
@@ -49,7 +52,19 @@ class Study_guidesController extends Controller
         $grade = Grade::find($study_guide['grade_id']);
         $grade = $grade->grade;
 
-        return view('app.view')->with(['study_guide' => $study_guide, 'grade' => $grade, 'subject' => $subject]);;
+        // Check if file has HTML, if it has load into variable, covert to UTF-8, return required variables to view
+        if ($study_guide['docx'] != '') {
+            $docxPath = '/app/public/' . $study_guide['docx'];
+
+            $fileContents = File::get(storage_path($docxPath));
+            $fileContents = mb_convert_encoding($fileContents, 'UTF-8', 'windows-1252');
+
+        } else {
+            $fileContents = "";
+
+        }
+        return view('app.view')->with(['study_guide' => $study_guide, 'grade' => $grade, 'subject' => $subject, 'fileContents' => $fileContents]);
+
     }
     public function editview(Request $request) {
         $data = request()->validate([
@@ -62,46 +77,88 @@ class Study_guidesController extends Controller
     public function edit(Request $request, $id) {
         $studyGuide = Study_guide::find($id);
 
+        // TODO: Validate
         // Update the fields
         $studyGuide->title = $request->input('name');
         $studyGuide->imageLink = $request->input('image');
+        $studyGuide->category = $request->input('category');
         $studyGuide->subject_id = $request->input('subject');
         $studyGuide->grade_id = $request->input('grade');
 
-        // Handle updating the document file if provided
+        // In case user wants, delete already stored pdf
+        if (isset($request['delete_pdf'])) {
+            $pdfPath = storage_path('app/public/' . $studyGuide['content']);
+            if (File::exists($pdfPath)) {
+                File::delete($pdfPath);
+
+                $studyGuide->content = null;
+            }
+        }
+        // In case user wants, delete already stored html
+        if (isset($request['delete_htm'])) {
+            $htmPath = storage_path('app/public/' . $studyGuide['docx']);
+            if (File::exists($htmPath)) {
+                File::delete($htmPath);
+
+                $studyGuide->docx = null;
+            }
+        }
+
+        // Handle updating the document pdf if provided
+        // Deletes old, if exists, and save new
         if ($request->hasFile('file')) {
             $oldfilePath = storage_path('app/public/' . $studyGuide['content']);
+
+            // Check if the file exists before deleting
+            if (File::exists($oldfilePath)) {
+                File::delete($oldfilePath);
+
+                $filePath = $request->file('file')->store('uploads', 'public');
+                $studyGuide->content = $filePath;
+                $studyGuide->save();
+            }
+        }
+
+        // Handle updating the document pdf if provided
+        // Deletes old, if exists, and save new
+        if ($request->hasFile('docx')) {
+            $oldfilePath = storage_path('app/public/' . $studyGuide['docx']);
 
             // Check if the file exists before deleting
             if (File::exists($oldfilePath)) {
 
                 File::delete($oldfilePath);
 
-                $filePath = $request->file('file')->store('uploads', 'public');
-                $studyGuide->content = $filePath;
+                $filePath = $request->file('docx')->store('uploads', 'public');
+                $studyGuide->docx = $filePath;
                 $studyGuide->save();
-            } else {
-                return redirect('/');
             }
         }
-
+        // This is needed to write to database in the case of no change in the files
+        $studyGuide->save();
         return redirect('/view-guide/'. $id);
     }
     public function delete($id) {
         $studyGuide = Study_guide::find($id);
 
-        $studyGuide = Study_guide::find($id);
 
+        // Delete the associated files (if needed)
+        $contentPath = storage_path('app/public/' . $studyGuide['content']);
+        $docxPath = storage_path('app/public/' . $studyGuide['docx']);
 
-        // Delete the associated file (if needed)
-        // Note: Adjust this part based on how you store and manage files
-        if (Storage::exists($studyGuide->content)) {
-            Storage::delete($studyGuide->content);
+        // In case pdf exists, it deletes it before deleting whole db entry
+        if (File::exists($contentPath)) {
+            File::delete($contentPath);
         }
 
+        // In case html exists, it deletes it before deleting whole db entry
+        if (File::exists($docxPath)) {
+            File::delete($docxPath);
+        }
         $studyGuide->delete();
 
-        return redirect('/dash');
+        //TODO: implement proper error handling
+        return redirect('/dash?delok');
     }
 
 }
