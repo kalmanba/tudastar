@@ -55,19 +55,6 @@ b {
     padding: 10px 10px 5px 10px;
     border-radius: 15px !important;
     object-fit: cover !important;
-
-
-}
-.dropdown-menu {
-    background-color: #1a5f7a !important;
-    color: white !important;
-}
-.dropdown-item {
-    color: white !important;
-}
-.dropdown-item:hover  {
-    background-color: #159895 !important;
-    color: white !important;
 }
 
 .table-continer {
