@@ -13,9 +13,15 @@
                         </p>
                         <a target="_blank" class="mb-4" href="https://www.buymeacoffee.com/hhtudastar"><img lass="mb-4" src="https://img.buymeacoffee.com/button-api/?text=Vegyél egy teát&emoji=🫖&slug=hhtudastar&button_colour=40DCA5&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" /></a>
                     </div>
+                    <div class="col-lg-8 mt-4">
+                        <h2>A tudástár költségei</h2>
+                        <p class="lead">
+                            A szervereink költsége <b>€0-ról havi €5-ra </b>növekedtek. Ezt az eseti támogatások csupán néhány hónapig tudják fedezni. Csupán néhány rendszeres támogató elegendő lenne ahhoz, hogy az összes tananyagunk ingyenes maradhasson, és újakat készíthessünk.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="container mt-3 px-lg-4">
+            <div class="container mt-2 px-lg-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>Egy palack a tudástárért</h2>

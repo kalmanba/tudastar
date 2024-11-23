@@ -6,8 +6,9 @@
          <div class="col-12">
              <h1 class="text-info-emphasis">Üdv a tudástárban!</h1>
              <p>Ezen tudástár célja, hogy az itt felsorolt középiskolai tantárgyak elsajátításást segítse. Az itt található összefoglalók és segédletek összessége (remélhetőleg) tartalmazza az adott témakör elsajátításához szükséges anyagot. A kártyák segítségével válaszd ki azt a tantárgyat és évfolyamot ami érdekel, és nézz körül milyen anyagok állnak rendelkezésre.</p>
-             <p>Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
-                 <a class="text-decoration-none" target="_blank" href="/donate"><span class="rainbow_text_animated">támogatását</span></a>.</p>
+             <h2 class="text-danger mt-2">A tudsátár fennmaradása veszélyben!</h2>
+             <p class="fw-bold">A tudástár szerereinek költségeit az eseti támogatások nem fedezik. Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
+                 <a class="text-decoration-none fw-bold" target="_blank" href="/donate"><span class="rainbow_text_animated">rendszeres támogatását</span></a>!</p>
          </div>
      </div>
      <h1 class="text-subtitle">Tantárgyak</h1>
