@@ -47,7 +47,7 @@
      </div>
      <div class="row">
      @foreach($subjects as $subject)
-                 <div class="col-sm-4 mb-4 mb-sm-0">
+                 <div class="col-sm-4 mb-4">
                      <div class="card h-100">
                          <img src="{{ $subject->imageLink }}" class="card-img-top cardimg" alt="">
                          <div class="card-body">

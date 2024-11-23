@@ -79,6 +79,7 @@
                                         <option class="dropdown-item" value="1">Fizika</option>
                                         <option class="dropdown-item" value="2">Irodalom</option>
                                         <option class="dropdown-item" value="3">Történelem</option>
+                                        <option class="dropdown-item" value="4">Biológia</option>
                                     </select>
                                 </div>
                             </div>
