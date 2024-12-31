@@ -76,10 +76,10 @@
 
                                 <div class="col-md-6">
                                     <select class="dropdown-toggle" name="subject" id="subject">
-                                        <option class="dropdown-item" value="1">Fizika</option>
-                                        <option class="dropdown-item" value="2">Irodalom</option>
-                                        <option class="dropdown-item" value="3">Történelem</option>
-                                        <option class="dropdown-item" value="4">Biológia</option>
+                                        <option class="dropdown-item-form" value="1">Fizika</option>
+                                        <option class="dropdown-item-form" value="2">Irodalom</option>
+                                        <option class="dropdown-item-from" value="3">Történelem</option>
+                                        <option class="dropdown-item-form" value="4">Biológia</option>
                                     </select>
                                 </div>
                             </div>

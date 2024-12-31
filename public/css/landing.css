@@ -125,4 +125,12 @@ b {
     max-width: 351px;
     height: auto;
 }
-
+.dropdown-menu {
+    background-color: #1a5f7a !important;
+}
+.dropdown-item {
+    color: white !important;
+}
+.dropdown-item:hover {
+    background-color: #159895 !important;
+}
