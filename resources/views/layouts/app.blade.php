@@ -43,9 +43,8 @@
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item text-light"><a class="nav-link active text-light" aria-current="page" href="/">Főoldal</a></li>
-                        <li class="nav-item dropdown "><span class=""><a target="_blank" class="nav-link active text-light" href="/" aria-expanded="true">Tantárgyak</a></span></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item text-light"><a class="nav-link active text-light" aria-current="page" href="/">Főoldal</a></li>
+                        <!--<li class="nav-item dropdown "><span class=""><a target="_blank" class="nav-link active text-light" href="/" aria-expanded="true">Tantárgyak</a></span></li>-->
                         <li class="nav-item dropdown ">
                             <a class=" pr-5 nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Rólunk</a>
                             <ul class="dropdown-menu">
