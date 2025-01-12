@@ -112,18 +112,23 @@
                 <script>
                     document.getElementById('sendRequest').addEventListener('click', function() {
                         // Data to be sent to the backend
-                        const data = { data: 'upgrade' };
+                        const data = { data: 'HelloWorld' };
 
-                        // Sending a POST request to the PHP backend
+                        // Get CSRF token from meta tag
+                        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                        // Sending a POST request to the PHP backend with CSRF token
                         fetch('/release-upgrade', {
                             method: 'POST',
                             headers: {
-                                'Content-Type': 'application/json'
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken
                             },
                             body: JSON.stringify(data)
                         })
                             .then(response => response.text())
                             .then(data => {
+                                // Display the output in a JavaScript alert
                                 alert(data);
                             })
                             .catch(error => console.error('Error:', error));
