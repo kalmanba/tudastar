@@ -108,14 +108,14 @@
                         </form>
                     </div>
                 </div>
-                <button id="sendRequest">Send Request</button>
+                <button type="button" class="btn btn-warning" id="sendRequest">Send Request</button>
                 <script>
                     document.getElementById('sendRequest').addEventListener('click', function() {
                         // Data to be sent to the backend
                         const data = { data: 'upgrade' };
 
                         // Sending a POST request to the PHP backend
-                        fetch('/release_upgrade', {
+                        fetch('/release-upgrade', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
