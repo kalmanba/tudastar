@@ -108,6 +108,27 @@
                         </form>
                     </div>
                 </div>
+                <button id="sendRequest">Send Request</button>
+                <script>
+                    document.getElementById('sendRequest').addEventListener('click', function() {
+                        // Data to be sent to the backend
+                        const data = { data: 'upgrade' };
+
+                        // Sending a POST request to the PHP backend
+                        fetch('/release_upgrade', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                            .then(response => response.text())
+                            .then(data => {
+                                alert(data);
+                            })
+                            .catch(error => console.error('Error:', error));
+                    });
+                </script>
                 <form method="POST" action="/logout">
                     @csrf
                     <button class=" mt-4 btn btn-primary">Kilépés</button>

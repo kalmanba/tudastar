@@ -48,3 +48,4 @@ Route::post('/newguide', [App\Http\Controllers\DashController::class, 'upload'])
 Route::post('/editview', [App\Http\Controllers\Study_guidesController::class, 'editview'])->middleware('auth');
 Route::put('/edit/{id}', [App\Http\Controllers\Study_guidesController::class, 'edit'])->middleware('auth');
 Route::delete('/delete/{id}', [App\Http\Controllers\Study_guidesController::class, 'delete'])->middleware('auth');
+Route::post('/release-upgrade', [App\Http\Controllers\DashController::class, 'releaseUpgrade'])->middleware('auth');

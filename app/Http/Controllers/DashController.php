@@ -62,5 +62,9 @@ class DashController extends Controller
 
 
     }
+    public function releaseUpgrade() {
+        $output = shell_exec("/bin/bash /var/www/learn.honaphire.net/upgrade.sh");
+        echo $output;
+    }
 
 }
