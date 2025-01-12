@@ -49,6 +49,7 @@
                             <a class=" pr-5 nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Rólunk</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/about">Rólunk</a></li>
+                                <li><a class="dropdown-item" href="/finance">Pénzügyeink</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/ASZF">ÁSZF</a></li>
                                 <li><a class="dropdown-item" href="/copyright">Szerzői Jogok</a></li>

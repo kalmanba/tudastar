@@ -39,6 +39,9 @@ Route::get('/copyright', function () {
 Route::get('/donate', function () {
     return view('about.support');
 });
+Route::get('/finance', function () {
+    return view('about.finance');
+});
 
 
 Route::post('/newguide', [App\Http\Controllers\DashController::class, 'upload'])->middleware('auth');
