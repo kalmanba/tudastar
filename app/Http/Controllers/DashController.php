@@ -52,18 +52,6 @@ class DashController extends Controller
 
             // Save the new record to the database
             $newStudyGuide->save();
-
-            //Generate sitemap
-            // Todo: Check and fix
-            $newguide = Study_guide::max('id');
-            SitemapGenerator::create('https://learn.honaphire.net')
-                ->getSitemap()
-                ->add(Url::create('/view-guide/' . $newguide)
-                    ->setLastModificationDate(Carbon::yesterday())
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8))
-                ->writeToDisk('public', 'sitemap.xml');
-
             // Todo: redirect to created guide
             return redirect('dash?ok');
 
