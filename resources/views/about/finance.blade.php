@@ -31,13 +31,13 @@
                             </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                            <!--
+                            
                             <tr>
                                 <th scope="row">2025. jan</th>
                                 <td>- 7.625 Ft</td>
-                                <td></td>
-                                <td><a href="https://cloud.kurthy.org/s/XWdNja8PTxLSdw8"></a><button class="button-bg btn btn-info">Megnézem</button></td>
-                            </tr>-->
+                                <td>- 1.092 Ft</td>
+                                <td><a href="https://cloud.kurthy.org/s/iZWtspf2BAeHtK9"></a><button class="button-bg btn btn-info">Megnézem</button></td>
+                            </tr>
                             <tr>
                                 <th scope="row">2024</th>
                                 <td>0 Ft</td>
