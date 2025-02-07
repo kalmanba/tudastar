@@ -26,7 +26,7 @@
                             <tr>
                                 <th scope="col">Dátum</th>
                                 <th scope="col">Pénztár nyitó</th>
-                                <th scope="col">Pénzátr záró</th>
+                                <th scope="col">Pénztár záró</th>
                                 <th scope="col">Részletek</th>
                             </tr>
                             </thead>
