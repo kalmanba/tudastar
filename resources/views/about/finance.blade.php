@@ -36,7 +36,7 @@
                                 <th scope="row">2025. jan</th>
                                 <td>- 7.625 Ft</td>
                                 <td>- 1.092 Ft</td>
-                                <td><a href="https://cloud.kurthy.org/s/iZWtspf2BAeHtK9"></a><button class="button-bg btn btn-info">Megnézem</button></td>
+                                <td><a href="https://cloud.kurthy.org/s/iZWtspf2BAeHtK9"><button class="button-bg btn btn-info">Megnézem</button></a></td>
                             </tr>
                             <tr>
                                 <th scope="row">2024</th>
