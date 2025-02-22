@@ -57,7 +57,7 @@ class Study_guidesController extends Controller
             $docxPath = '/app/public/' . $study_guide['docx'];
 
             $fileContents = File::get(storage_path($docxPath));
-            $fileContents = mb_convert_encoding($fileContents, 'UTF-8', 'windows-1252');
+            $fileContents = mb_convert_encoding($fileContents, 'UTF-8', ['windows-1252', 'UTF-8']);
 
         } else {
             $fileContents = "";
