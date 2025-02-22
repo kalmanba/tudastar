@@ -80,6 +80,7 @@
                                         <option class="dropdown-item-form" value="2">Irodalom</option>
                                         <option class="dropdown-item-from" value="3">Történelem</option>
                                         <option class="dropdown-item-form" value="4">Biológia</option>
+                                        <option class="dropdown-item-form" value="5">Földrajz</option>
                                     </select>
                                 </div>
                             </div>
