@@ -81,6 +81,7 @@
                                         <option class="dropdown-item-from" value="3">Történelem</option>
                                         <option class="dropdown-item-form" value="4">Biológia</option>
                                         <option class="dropdown-item-form" value="5">Földrajz</option>
+                                        <option class="dropdown-item" value="6">Kémia</option>
                                     </select>
                                 </div>
                             </div>
