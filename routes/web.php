@@ -49,3 +49,37 @@ Route::post('/editview', [App\Http\Controllers\Study_guidesController::class, 'e
 Route::put('/edit/{id}', [App\Http\Controllers\Study_guidesController::class, 'edit'])->middleware('auth');
 Route::delete('/delete/{id}', [App\Http\Controllers\Study_guidesController::class, 'delete'])->middleware('auth');
 Route::post('/release-upgrade', [App\Http\Controllers\DashController::class, 'releaseUpgrade'])->middleware('auth');
+
+/*
+Store
+*/
+
+Route::get('/store', [App\Http\Controllers\StoreController::class, 'index']);
+Route::get('/store/item/{store}', [App\Http\Controllers\StoreController::class, 'show']);
+
+Route::prefix('/cart')->group(function () {
+    Route::get('/', [App\Http\Controllers\CartController::class, 'index']);
+    Route::post('/add', [App\Http\Controllers\CartController::class, 'add']);
+    Route::put('/update/{itemId}', [App\Http\Controllers\CartController::class, 'update']);
+    Route::delete('/remove/{itemId}', [App\Http\Controllers\CartController::class, 'remove']);
+    Route::delete('/clear', [App\Http\Controllers\CartController::class, 'clear']);
+});
+
+Route::prefix('/checkout')->group(function () {
+    Route::get('/', [App\Http\Controllers\CheckoutController::class, 'show'])->name('checkout');
+    Route::post('/', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+});
+
+Route::get('/order/confirmation/{order_number}', function ($orderNumber) {
+    $order = \App\Models\Order::where('order_number', $orderNumber)->firstOrFail();
+    return view('store.order-confirmation', compact('order'));
+})->name('order.confirmation');
+
+// routes/web.php
+Route::prefix('/store/admin')->middleware('auth')->group(function() {
+    Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('admin.orders.index');
+    Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'update'])->name('admin.orders.update');
+    Route::post('/orders/{order}/pickup', [\App\Http\Controllers\OrderController::class, 'sendPickupDate'])->name('admin.orders.pickup');
+    Route::post('/orders/{order}/tracking', [\App\Http\Controllers\OrderController::class, 'sendTrackingNumber'])->name('admin.orders.tracking');
+    Route::patch('/orders/{order}/archive', [\App\Http\Controllers\OrderController::class, 'archive'])->name('admin.orders.archive');
+});
