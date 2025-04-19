@@ -1,7 +1,7 @@
 <!doctype html>
 
 <!-- (c)2023-2025 Kürthy Márton && Hónap Híre Tudástár -->
-<!-- Version: 2.18.4, last update: 2025.04.08. -->
+<!-- Version: 2.20.2, last update: 2025.04.17. -->
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
