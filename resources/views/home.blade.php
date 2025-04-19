@@ -10,7 +10,7 @@
              <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                  <div class="progress-bar progress-bar-striped progress-bar-animated {{ $bgColor }}" style="width: {{ $fund }}"></div>
              </div>
-             <p class="fw-bold">A {{ $month }} havi költségeinknek {{ $fund }}-a fedezett. Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
+             <p class="fw-bold">A{{ $month }} havi költségeinknek {{ $fund }}-a fedezett. Ha igazán segítségedre volt az, amit itt találtál kérlek fontold meg a tudástár
                  <a class="text-decoration-none fw-bold" target="_blank" href="/donate"><span class="rainbow_text_animated">rendszeres támogatását</span></a>!</p>
          </div>
      </div>

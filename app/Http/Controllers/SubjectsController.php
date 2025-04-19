@@ -38,16 +38,16 @@ class SubjectsController extends Controller
 
         // I don't care how stupid this looks, it works unlike the international time formatting thing.
         $months = array(
-            "Január",
-            "Február",
-            "Március",
-            "Április",
-            "Május",
-            "Június",
-            "Július",
-            "Augusztus",
-            "Szeptember",
-            "Október",
+            " Január",
+            " Február",
+            " árcius",
+            "z Április",
+            " Május",
+            " Június",
+            " Július",
+            "z Augusztus",
+            " Szeptember",
+            "z Október",
             "November",
             "December"
         );
