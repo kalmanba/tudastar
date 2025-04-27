@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row">
             <h1 class="display-6 text-info mb-2 text-dark">
-                <a class="backspan fs-1" href="/gradeselector?_token={{ csrf_token() }}&subject_id={{ $subjectid }}">
+                <a class="backspan fs-1" href="/{{ $subject->slug }}">
                     <i class="backspan bi bi-arrow-90deg-up"></i>
                 </a>
-                {{ $subject }} - <span class="text-subtitle h2">{{ $grade }}. osztály</span>
+                {{ $subject->name }} - <span class="text-subtitle h2">{{ $grade->grade }}. osztály</span>
             </h1>
             @foreach($studyGuides as $category => $guides)
                 <div class="category-section">
@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="px-3 pb-3 mt-auto">
                                         <div class="d-flex justify-content-between">
-                                            <a href="/view-guide/{{$studyGuide->id}}">
+                                            <a href="/{{ $subject->slug }}/{{ $grade->slug }}/{{ $studyGuide->slug }}">
                                                 <button class="button-bg btn btn-info">Megnézem</button>
                                             </a>
                                             @if(Auth::user())

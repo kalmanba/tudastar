@@ -76,12 +76,9 @@
 
                                 <div class="col-md-6">
                                     <select class="dropdown-toggle" name="subject" id="subject">
-                                        <option class="dropdown-item-form" value="1">Fizika</option>
-                                        <option class="dropdown-item-form" value="2">Irodalom</option>
-                                        <option class="dropdown-item-from" value="3">Történelem</option>
-                                        <option class="dropdown-item-form" value="4">Biológia</option>
-                                        <option class="dropdown-item-form" value="5">Földrajz</option>
-                                        <option class="dropdown-item" value="6">Kémia</option>
+                                        @foreach ($subjects as $subject)
+                                            <option class="dropdown-item-form" value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -91,10 +88,9 @@
 
                                 <div class="col-md-6">
                                     <select name="grade" id="grade">
-                                        <option value="1">9</option>
-                                        <option value="2">10</option>
-                                        <option value="3">11</option>
-                                        <option value="4">12</option>
+                                        @foreach ($grades as $grade)
+                                            <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
