@@ -43,6 +43,14 @@ Route::get('/finance', function () {
     return view('about.finance');
 });
 
+/*
+    New routes
+*/
+Route::get('/{subject}', [App\Http\Controllers\GradesController::class, 'list']);
+Route::get('/{subject}/{grade}', [App\Http\Controllers\Study_guidesController::class, 'listBySlug']);
+Route::get('/{subject}/{grade}/{guide}', [App\Http\Controllers\Study_guidesController::class, 'viewBySlug']);
+
+
 
 Route::post('/newguide', [App\Http\Controllers\DashController::class, 'upload'])->middleware('auth');
 Route::post('/editview', [App\Http\Controllers\Study_guidesController::class, 'editview'])->middleware('auth');

@@ -23,4 +23,11 @@ class GradesController extends Controller
         $grades = Grade::all();
         return view('app.gradeselector')->with(['subjectid' => $subjectid, 'grades' => $grades, 'subjectname' => $subjectname]);
     }
+
+    public function list($slug) {
+       $grades = Grade::all();
+       $subject = Subject::where('slug' , $slug)->first();
+
+    return view('app.gradeselector')->with(['subject'=> $subject,'grades'=> $grades]);
+    }
 }

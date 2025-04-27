@@ -5,6 +5,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use App\Models\Study_guide;
+use App\Models\Subject;
+use App\Models\Grade;
 use Psr\Log\NullLogger;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
@@ -12,7 +14,9 @@ use Spatie\Sitemap\Tags\Url;
 class DashController extends Controller
 {
     public function index() {
-        return view('dash');
+        $subjects = Subject::all();
+        $grades = Grade::all();
+        return view('dash')->with(['subjects'=> $subjects,'grades'=> $grades]);
     }
     public function upload(Request $request) {
         $data = $request->validate([

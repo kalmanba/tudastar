@@ -58,11 +58,8 @@
                              <h3 class="h4 fw-bold mb-3 card-title lh-base">{{ $subject->name }}</h3>
                              <div class="row align-items-center">
                                  <div class="order-2 order-lg-1 col-lg-6">
-                                     <form method="GET" action="/gradeselector">
-                                         @csrf
-                                         <input name="subject_id" type="hidden" value="{{ $subject->id }}">
-                                         <button class="button-bg btn btn-info">Megnézem</button>
-                                     </form>
+                                    <a href="/{{ $subject->slug }}"><button class="button-bg btn btn-info">Megnézem</button></a>
+
                                  </div>
                              </div>
                          </div>
