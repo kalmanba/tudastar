@@ -44,13 +44,35 @@ class Study_guidesController extends Controller
         }
 
     }
+
+    public function listBySlug($subject, $grade) {
+        $subject = Subject::where('slug' , $subject)->first();
+        $grade = Grade::where('slug' , $grade)->first();
+
+        $studyGuides = Study_guide::where('subject_id', $subject->id)
+            ->where('grade_id', $grade->id)
+            ->orderByRaw('category IS NULL DESC, category ASC')
+            ->orderBy('created_at', 'asc')
+            ->get()
+            ->groupBy('category');
+
+
+        if ($studyGuides->isNotEmpty()) {
+            return view('app.list-guides')->with(['studyGuides' => $studyGuides, 'grade' => $grade, 'subject' => $subject]);
+
+        } else {
+            session()->flash('showModal', true);
+            session()->flash('subject', $subject);
+            session()->flash('grade', $grade);
+            return redirect('/');
+        }
+    }
+
     public function view(Study_guide $study_guide) {
 
         $subject = Subject::find($study_guide['subject_id']);
-        $subject = $subject->name;
 
         $grade = Grade::find($study_guide['grade_id']);
-        $grade = $grade->grade;
 
         // Check if file has HTML, if it has load into variable, covert to UTF-8, return required variables to view
         if ($study_guide['docx'] != '') {
@@ -66,13 +88,40 @@ class Study_guidesController extends Controller
         return view('app.view')->with(['study_guide' => $study_guide, 'grade' => $grade, 'subject' => $subject, 'fileContents' => $fileContents]);
 
     }
+
+    public function viewBySlug($subject, $grade, $guide) {
+        $subject = Subject::where('slug' , $subject)->first();
+        $grade = Grade::where('slug' , $grade)->first();
+
+        $study_guide = Study_guide::where('slug', $guide)->first();
+
+        // Check if file has HTML, if it has load into variable, covert to UTF-8, return required variables to view
+        if ($study_guide['docx'] != '') {
+            $docxPath = '/app/public/' . $study_guide['docx'];
+
+            $fileContents = File::get(storage_path($docxPath));
+            $fileContents = mb_convert_encoding($fileContents, 'UTF-8', ['windows-1252', 'UTF-8']);
+
+        } else {
+            $fileContents = "";
+
+        }
+
+        return view('app.view')->with(['study_guide' => $study_guide, 'grade' => $grade, 'subject' => $subject, 'fileContents' => $fileContents]);
+    }
+
     public function editview(Request $request) {
         $data = request()->validate([
             'guide_id' => 'required'
         ]);
 
         $studyGuide = Study_guide::find($data['guide_id']);
-        return view('editview', compact('studyGuide'));
+        $subjects = Subject::all();
+        $grades = Grade::all();
+        $firstSubject = Subject::find($studyGuide->subject_id);
+        $firstGrade = Grade::find($studyGuide->grade_id);
+
+        return view('editview', compact('studyGuide', 'subjects', 'grades', 'firstSubject', 'firstGrade'));
     }
     public function edit(Request $request, $id) {
         $studyGuide = Study_guide::find($id);
