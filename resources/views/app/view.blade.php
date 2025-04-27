@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h1 class="display-6 text-info mb-1 text-dark"><a class="backspan fs-1 mb-4" href="/list-guides?_token={{ csrf_token() }}&subject_id={{ $study_guide->subject_id }}&grade_id={{ $study_guide->grade_id }}"><i class="backspan bi bi-arrow-90deg-up"></i></a> {{ $subject->name }} -  <span class="h2 text-subtitle">{{ $study_guide->title }}</span></h1>
+            <h1 class="display-6 text-info mb-1 text-dark"><a class="backspan fs-1 mb-4" href="/{{ $subject->slug }}/{{ $grade->slug }}"><i class="backspan bi bi-arrow-90deg-up"></i></a> {{ $subject->name }} -  <span class="h2 text-subtitle">{{ $study_guide->title }}</span></h1>
 
             @if($fileContents != '')
                 <div class="word-content">
