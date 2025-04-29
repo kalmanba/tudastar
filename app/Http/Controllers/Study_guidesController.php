@@ -62,8 +62,8 @@ class Study_guidesController extends Controller
 
         } else {
             session()->flash('showModal', true);
-            session()->flash('subject', $subject);
-            session()->flash('grade', $grade);
+            session()->flash('subject', $subject->name);
+            session()->flash('grade', $grade->grade);
             return redirect('/');
         }
     }

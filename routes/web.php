@@ -43,13 +43,6 @@ Route::get('/finance', function () {
     return view('about.finance');
 });
 
-/*
-    New routes
-*/
-Route::get('/{subject}', [App\Http\Controllers\GradesController::class, 'list']);
-Route::get('/{subject}/{grade}', [App\Http\Controllers\Study_guidesController::class, 'listBySlug']);
-Route::get('/{subject}/{grade}/{guide}', [App\Http\Controllers\Study_guidesController::class, 'viewBySlug']);
-
 
 
 Route::post('/newguide', [App\Http\Controllers\DashController::class, 'upload'])->middleware('auth');
@@ -83,7 +76,6 @@ Route::get('/order/confirmation/{order_number}', function ($orderNumber) {
     return view('store.order-confirmation', compact('order'));
 })->name('order.confirmation');
 
-// routes/web.php
 Route::prefix('/store/admin')->middleware('auth')->group(function() {
     Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('admin.orders.index');
     Route::put('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'update'])->name('admin.orders.update');
@@ -91,3 +83,10 @@ Route::prefix('/store/admin')->middleware('auth')->group(function() {
     Route::post('/orders/{order}/tracking', [\App\Http\Controllers\OrderController::class, 'sendTrackingNumber'])->name('admin.orders.tracking');
     Route::patch('/orders/{order}/archive', [\App\Http\Controllers\OrderController::class, 'archive'])->name('admin.orders.archive');
 });
+
+/*
+    New routes
+*/
+Route::get('/{subject}', [App\Http\Controllers\GradesController::class, 'list']);
+Route::get('/{subject}/{grade}', [App\Http\Controllers\Study_guidesController::class, 'listBySlug']);
+Route::get('/{subject}/{grade}/{guide}', [App\Http\Controllers\Study_guidesController::class, 'viewBySlug']);
