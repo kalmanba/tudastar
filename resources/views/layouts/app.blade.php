@@ -56,6 +56,7 @@
                                 <li><a class="dropdown-item" href="/ASZF">ÁSZF</a></li>
                                 <li><a class="dropdown-item" href="/copyright">Szerzői Jogok</a></li>
                             </ul>
+                        <li class="nav-item"><a class="nav-link active text-light" href="/store">Merch</a></li>
                         <li class="nav-item shadowBox"><a class="rainbow rainbow_text_animated" href="/donate">Támogatás</a></li>
                         <!--<li class="nav-item "><a class="nav-link text-light" href="/home/pages/contact.php">Kapcsolat</a></li>-->
                     </ul>
