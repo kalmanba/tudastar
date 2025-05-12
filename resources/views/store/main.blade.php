@@ -6,7 +6,7 @@
      <div class="row">
          <div class="col-12">
              <h1 class="text-info-emphasis">Tudástár Shop</h1>
-             <p>Ezen oldalrész célja, hogy Tudsátár feliratos és logós termékek vásárlását lehetővé tegye. A tudásár "merch" vásárlásával úgy támogathatod az oldal fenmaradását, hogy közben egy igazán stílusos tárgyal gazdagodsz.</p>
+             <p>Ezen oldalrész célja, hogy Tudsátár feliratos és logós termékek vásárlását lehetővé tegye. A tudásár "merch" vásárlásával úgy támogathatod az oldal fenmaradását, hogy közben egy igazán stílusos tárggyal gazdagodsz.</p>
          </div>
      </div>
      <h1 class="text-subtitle">Termékek</h1>
