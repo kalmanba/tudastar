@@ -54,7 +54,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="payment_method" id="bank-transfer" value="bank_transfer">
                                 <label class="form-check-label" for="bank-transfer">
-                                    Átutalás (A részleteket ímélben továbbítjuk.)
+                                    Átutalás (A részleteket emailben továbbítjuk.)
                                 </label>
                             </div>
                             <div class="form-check">

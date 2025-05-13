@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script async src="/js/add.js"></script>
+<script async type="module" src="/js/add.js"></script>
 
 <div class="container">
      <div class="row">
@@ -74,7 +74,7 @@
     </div>
 </div>
 
-<script type="module" src="/js/cart.js"></script>
+<script async type="module" src="/js/cart.js"></script>
 
 <!-- Floating Cart Button -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1000;">

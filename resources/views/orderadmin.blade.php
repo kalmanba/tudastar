@@ -18,7 +18,9 @@
                     <th>Order #</th>
                     <th>Date</th>
                     <th>Customer</th>
-                    <th>Payment Method</th> <!-- New Column -->
+                    <th>Payment Method</th>
+                    <th>Address</th>
+                    <th>Notes</th>
                     <th>Items</th>
                     <th>Total</th>
                     <th>Status</th>
@@ -46,6 +48,8 @@
                         @endphp
                         {{ $paymentMethods[$order->payment_method] ?? ucfirst(str_replace('_', ' ', $order->payment_method)) }}
                     </td>
+                    <td>{{ $order->shipping_address }}</td>
+                    <td>{{ $order->notes }}</td>
                     <td>
                         @foreach($order->cart_items as $item)
                             {{ $item['name'] }}: {{ $item['price'] }} × {{ $item['quantity'] }}<br>
