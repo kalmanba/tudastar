@@ -31,13 +31,20 @@
                         </div>
 
                         <h5 class="mb-3">Szállítási cím</h5>
-                        <div class="mb-4">
-                            <label for="shipping_address" class="form-label">Cím (A személyes átvételt is ebben a mezőben jelezheti)</label>
+                        <div class="form-check mb-3">
+                            <input name="pickup" class="form-check-input" type="checkbox" id="pickup" checked>
+                            <label class="form-check-label" for="pickup">
+                                Személyes átvétel (2040 Budaörs, Szabadság út 162.)
+                            </label>
+                        </div>
+                        <div id="shipping-address-section" class="mb-4 d-none">
+                            <label for="shipping_address" class="form-label">Cím</label>
                             <textarea class="form-control" id="shipping_address" name="shipping_address" placeholder="pl.: 8888 Simagöröngyös, Keskeny-Széles utca 42." rows="3" required></textarea>
+                            <p class="fw-lighter">A Foxpost szállítás ára: 1690Ft. Ebben az esetben a végleges számlát emailben küldjük meg.</p>
                         </div>
 
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="same-billing" checked>
+                        <div id="same-billing-section" class="form-check mb-3 d-none">
+                            <input class="form-check-input" type="checkbox" id="same-billing">
                             <label class="form-check-label" for="same-billing">
                                 Számlázási cím megegyezik a szállításival
                             </label>
@@ -119,6 +126,31 @@
             billingSection.classList.add('d-none');
         } else {
             billingSection.classList.remove('d-none');
+        }
+    });
+
+        
+        document.getElementById('pickup').addEventListener('change', function() {
+        const shippingSection = document.getElementById('shipping-address-section');
+        const billingSection = document.getElementById('billing-address-section');
+        const sameAddr = document.getElementById('same-billing-section');
+        if (this.checked) {
+            shippingSection.classList.add('d-none');
+            billingSection.classList.remove('d-none');
+            sameAddr.classList.add('d-none');
+            document.getElementById('shipping_address').required = false;
+            document.getElementById('billing_address').required = true;
+        } else {
+            shippingSection.classList.remove('d-none');
+            sameAddr.classList.remove('d-none');
+            billingSection.classList.remove('d-none');
+
+            document.getElementById('shipping_address').required = true;
+            document.getElementById('billing_address').required = false;
+
+            if (document.getElementById('same-billing').checked) {
+                billingSection.classList.add('d-none');
+            }
         }
     });
 </script>

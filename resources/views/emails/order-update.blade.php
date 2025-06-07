@@ -23,5 +23,6 @@
     </ul>
     
     <p>Köszönjük hogy rendeleseddel támogatod a Tudástárat.</p>
+    <p>Kérjük erre az emailre ne válaszolj! Kérdés esetén keress minket emailben a <a href="mailto:ttstore@honaphire.net">ttstore@honaphire.net</a> címen</p>
 </body>
 </html>
