@@ -12,17 +12,11 @@
             @endif
 
             @if($fileContents == "")
-                <div id="adobe-dc-view" style="margin: 0 auto;"></div>
-                <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
-                <script type="text/javascript">
-                    document.addEventListener("adobe_dc_view_sdk.ready", function(){
-                        var adobeDCView = new AdobeDC.View({clientId: "84277f96dab74221ae1f38e5321c3451", divId: "adobe-dc-view"});
-                        adobeDCView.previewFile({
-                            content:{location: {url: "/storage/{{ $study_guide->content }}"}},
-                            metaData:{fileName: "{{ $study_guide->title }}"}
-                        }, {embedMode: "IN_LINE", showDownloadPDF: false, showPrintPDF: false});
-                    });
+                <div id="pdfContainer" class="pdf-container"></div>
+                <script>
+                    const PDF_URL = '/storage/{{ $study_guide->content }}';
                 </script>
+                <script src="/js/pdfView.js"></script>
             @endif
 
         </div>
