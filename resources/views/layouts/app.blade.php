@@ -40,7 +40,7 @@
     <div id="app">
         <nav class="navbar-bg navbar navbar-expand-lg text-light" style="background-color: #e3f2fd;" >
             <div class="container">
-                <a class="navbar-brand text-light" href="/"><img src="/img/android-chrome-512x512.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> HHM Tudástár</a>
+                <a class="navbar-brand text-light" href="/"><img src="/img/android-chrome-512x512.png" alt="Logo" width="25" height="24" class="d-inline-block align-text-top"> HHM Tudástár</a>
                 <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
