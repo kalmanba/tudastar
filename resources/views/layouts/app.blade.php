@@ -22,25 +22,27 @@
     <!-- Css -->
     <link rel="stylesheet" href="/css/landing.css">
     <link rel="stylesheet" href="/css/rainbow.css">
+    <link rel="stylesheet" href="/css/pdf.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Tudástár" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
         <nav class="navbar-bg navbar navbar-expand-lg text-light" style="background-color: #e3f2fd;" >
             <div class="container">
-                <a class="navbar-brand text-light" href="/"><img src="/img/android-chrome-512x512.png" alt="Logo" width="25" height="24" class="d-inline-block align-text-top"> HHM Tudástár</a>
+                <a class="navbar-brand text-light" href="/"><img src="/img/favicon/web-app-manifest-512x512.png" alt="Logo" width="25" height="24" class="d-inline-block align-text-top"> HHM Tudástár</a>
                 <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon navbar-dark"></span>
                 </button>
@@ -74,7 +76,6 @@
         </main>
 
     </div>
-    <script type="text/javascript" src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
