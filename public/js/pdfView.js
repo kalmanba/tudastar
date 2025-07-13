@@ -1,102 +1,80 @@
-// Configure PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+// Import necessary modules from PDF.js
+import { getDocument, GlobalWorkerOptions } from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.mjs';
 
-let currentPdf = null;
+// Set the worker source for PDF.js. This is crucial for it to work.
+// Make sure the worker.mjs version matches the pdf.min.mjs version.
+GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';
 
-// Auto-load PDF on page load
-window.addEventListener('load', function() {
-    if (PDF_URL && PDF_URL !== 'https://example.com/your-document.pdf') {
-        loadPDF(PDF_URL);
-    }
-});
+const pdfViewerDiv = document.getElementById('pdf-viewer');
+const loadingMessage = document.getElementById('loading-message');
 
-// Load PDF function
-async function loadPDF(url) {
+/**
+ * Renders a PDF document page by page into canvas elements,
+ * ensuring high resolution and continuous scrolling.
+ * @param {string} url - The URL of the PDF document.
+ */
+async function renderPdf(url) {
     try {
-        const pdf = await pdfjsLib.getDocument(url).promise;
-        currentPdf = pdf;
-        await renderAllPages(pdf);
-    } catch (error) {
-        console.error('Error loading PDF:', error);
-        document.getElementById('pdfContainer').innerHTML = '<div style="padding: 20px; color: red;">Error loading PDF: ' + error.message + '</div>';
-    }
-}
+        // Hide loading message once rendering starts
+        loadingMessage.style.display = 'none';
 
-// Render all pages
-async function renderAllPages(pdf) {
-    const container = document.getElementById('pdfContainer');
-    container.innerHTML = '';
-    
-    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-        try {
+        // Load the PDF document
+        const loadingTask = getDocument(url);
+        const pdf = await loadingTask.promise;
+
+        // Get the device pixel ratio for high-DPI screen rendering
+        const devicePixelRatio = window.devicePixelRatio || 1;
+
+        // Loop through each page of the PDF
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
             const page = await pdf.getPage(pageNum);
-            const pageElement = await renderPage(page, pageNum);
-            container.appendChild(pageElement);
-        } catch (error) {
-            console.error(`Error rendering page ${pageNum}:`, error);
+
+            // Define a base scale. This can be adjusted based on desired quality.
+            // A higher base scale results in a larger internal canvas,
+            // which is then scaled down by CSS for display, providing sharpness.
+            const baseScale = 2.5; // Experiment with 1.5, 2.0, 2.5, 3.0
+            
+            // Calculate the actual scale for rendering, considering device pixel ratio
+            const actualRenderScale = baseScale * devicePixelRatio;
+
+            // Get the viewport with the calculated scale
+            const viewport = page.getViewport({ scale: actualRenderScale });
+
+            // Create a canvas element for the current page
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            // Set the internal dimensions of the canvas to the high-resolution viewport dimensions.
+            // These are the actual pixels PDF.js will draw onto.
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // IMPORTANT CHANGE: Removed explicit canvas.style.width/height in JS.
+            // Now, the CSS 'width: 100%; height: auto;' will handle the display scaling
+            // of the high-resolution canvas, making it responsive.
+
+            pdfViewerDiv.appendChild(canvas); // Append canvas directly to the viewer div
+
+            // Define the rendering context for the page
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport,
+                // Optional: 'print' intent can sometimes improve text rendering quality,
+                // but might be slower for large documents. Experiment if needed.
+                // intent: 'print' 
+            };
+
+            // Render the PDF page onto the canvas
+            await page.render(renderContext).promise;
         }
+    } catch (error) {
+        console.error('Error rendering PDF:', error);
+        loadingMessage.innerHTML = `Failed to load PDF: ${error.message}`;
+        loadingMessage.style.display = 'flex'; // Show error message
     }
 }
 
-// Render single page with text layer
-async function renderPage(page, pageNum) {
-    const containerWidth = document.getElementById('pdfContainer').clientWidth || window.innerWidth;
-    const viewport = page.getViewport({ scale: 1 });
-    
-    // Calculate scale to fit container width
-    const scale = containerWidth / viewport.width;
-    const scaledViewport = page.getViewport({ scale: scale });
-    
-    // Create wrapper
-    const wrapper = document.createElement('div');
-    wrapper.className = 'pdf-page-wrapper';
-    wrapper.style.width = '100%';
-    wrapper.style.height = scaledViewport.height + 'px';
-    
-    // Create canvas
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    canvas.height = scaledViewport.height;
-    canvas.width = scaledViewport.width;
-    canvas.className = 'pdf-page';
-    
-    // Create text layer div
-    const textLayerDiv = document.createElement('div');
-    textLayerDiv.className = 'textLayer';
-    textLayerDiv.style.width = '100%';
-    textLayerDiv.style.height = scaledViewport.height + 'px';
-    
-    // Render canvas
-    const renderContext = {
-        canvasContext: context,
-        viewport: scaledViewport
-    };
-    
-    await page.render(renderContext).promise;
-    
-    // Render text layer
-    const textContent = await page.getTextContent();
-    pdfjsLib.renderTextLayer({
-        textContent: textContent,
-        container: textLayerDiv,
-        viewport: scaledViewport,
-        textDivs: []
-    });
-    
-    // Assemble the page
-    wrapper.appendChild(canvas);
-    wrapper.appendChild(textLayerDiv);
-    
-    return wrapper;
-}
-
-// Handle window resize
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-        if (currentPdf) {
-            renderAllPages(currentPdf);
-        }
-    }, 250);
-});
+// Call the render function when the window loads
+window.onload = function() {
+    renderPdf(pdfUrl);
+};

@@ -1,36 +1,31 @@
-.pdf-container {
-    width: 100%;
+canvas {
+    display: block; /* Ensures canvases stack vertically without extra space */
+    margin: 0 auto; /* Center the canvas if it's narrower than the body */
+    width: 100%; /* Make canvas take full width of its parent */
+    height: auto; /* Maintain aspect ratio based on width */
+    /* The internal canvas.width and canvas.height attributes (set in JS) define the resolution.
+       These CSS properties define the display size, allowing for responsive scaling. */
+}
+/* Basic styling for loading message, without fancy animations or colors */
+#loading-message {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1em;
+    color: #333;
 }
-
-.pdf-page-wrapper {
-    width: 100%;
-    position: relative;
-    display: block;
+#loading-message div { /* Simple placeholder for spinner */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
 }
-
-.pdf-page {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.textLayer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    opacity: 0.2;
-    line-height: 1.0;
-}
-
-.textLayer > span {
-    color: transparent;
-    position: absolute;
-    white-space: pre;
-    cursor: text;
-    transform-origin: 0% 0%;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
