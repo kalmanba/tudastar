@@ -2,9 +2,14 @@ canvas {
     display: block; /* Ensures canvases stack vertically without extra space */
     margin: 0 auto; /* Center the canvas if it's narrower than the body */
     width: 100%; /* Make canvas take full width of its parent */
+    max-width: 1000px;
+    justify-self: center;
     height: auto; /* Maintain aspect ratio based on width */
     /* The internal canvas.width and canvas.height attributes (set in JS) define the resolution.
        These CSS properties define the display size, allowing for responsive scaling. */
+}
+#pdf-viewer {
+    display: grid;
 }
 /* Basic styling for loading message, without fancy animations or colors */
 #loading-message {
