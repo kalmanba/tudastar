@@ -8,8 +8,6 @@ use App\Models\Grade;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\Shared\ZipArchive;
 
 class Study_guidesController extends Controller
 {
