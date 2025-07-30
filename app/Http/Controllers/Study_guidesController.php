@@ -8,6 +8,7 @@ use App\Models\Grade;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Spatie\PdfToText\Pdf;
 
 class Study_guidesController extends Controller
 {
@@ -161,6 +162,10 @@ class Study_guidesController extends Controller
                 File::delete($oldfilePath);
 
                 $filePath = $request->file('file')->store('uploads', 'public');
+
+                $pdf_path = storage_path('/app/public/' . $filePath);        
+        
+                $studyGuide->pdfText = Pdf::getText($pdf_path);
                 $studyGuide->content = $filePath;
                 $studyGuide->save();
             }

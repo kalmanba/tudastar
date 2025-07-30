@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <div class="pdf-text-content" style="position: absolute; left: -9999px; top: -9999px;">
+            @if($fileContents == "")
+                {{ $study_guide->pdfText }}
+            @endif
+        </div>
         <div class="row">
             <h1 class="display-6 text-info mb-1 text-dark"><a class="backspan fs-1 mb-4"
                     href="/{{ $subject->slug }}/{{ $grade->slug }}"><i class="backspan bi bi-arrow-90deg-up"></i></a>

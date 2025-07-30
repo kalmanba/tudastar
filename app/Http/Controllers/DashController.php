@@ -10,6 +10,7 @@ use App\Models\Grade;
 use Psr\Log\NullLogger;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
+use Spatie\PdfToText\Pdf;
 
 class DashController extends Controller
 {
@@ -39,6 +40,9 @@ class DashController extends Controller
             if ($request->hasFile('file')){
                 $filePath = $request->file('file')->store('uploads', 'public');
                 $newStudyGuide->content = $filePath;
+
+                $pdf_path = storage_path('/app/public/' . $filePath);        
+                $newStudyGuide->pdfText = Pdf::getText($pdf_path);
             }
 
             // In case request has htm file, save html
