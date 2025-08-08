@@ -35,6 +35,7 @@
     <link rel="manifest" href="/img/favicon/site.webmanifest" />
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>

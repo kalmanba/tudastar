@@ -191,7 +191,7 @@ class Study_guidesController extends Controller
         return redirect('/view-guide/'. $id);
     }
     public function delete($id) {
-        $studyGuide = Study_guide::find($id);
+        $studyGuide = Study_guide::find(id: $id);
 
 
         // Delete the associated files (if needed)

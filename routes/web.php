@@ -84,6 +84,11 @@ Route::prefix('/store/admin')->middleware('auth')->group(function() {
     Route::patch('/orders/{order}/archive', [\App\Http\Controllers\OrderController::class, 'archive'])->name('admin.orders.archive');
 });
 
+/* Image Uploads */
+Route::get('/images', [App\Http\Controllers\ImgUploadsController::class, 'list'])->middleware('auth');
+Route::post('/images', [App\Http\Controllers\ImgUploadsController::class, 'upload'])->middleware('auth');
+Route::delete('/images', [App\Http\Controllers\ImgUploadsController::class, 'delete'])->middleware('auth');
+
 /*
     New routes
 */
