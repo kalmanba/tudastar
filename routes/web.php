@@ -89,6 +89,9 @@ Route::get('/images', [App\Http\Controllers\ImgUploadsController::class, 'list']
 Route::post('/images', [App\Http\Controllers\ImgUploadsController::class, 'upload'])->middleware('auth');
 Route::delete('/images', [App\Http\Controllers\ImgUploadsController::class, 'delete'])->middleware('auth');
 
+Route::delete('/manage-images/{filename}', [App\Http\Controllers\ImgUploadsController::class, 'apiImageDelete'])->name('images.destroy');
+
+
 /*
     New routes
 */

@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.9.3",
         "intervention/image": "^2.7.2",
         "laravel/framework": "^10.48.29.",
-        "laravel/sanctum": "^3.3.3",
+        "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.10.1",
         "laravel/ui": "^4.6.1",
         "spatie/laravel-sitemap": "^7.3.4",

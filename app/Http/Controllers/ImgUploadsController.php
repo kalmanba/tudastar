@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 use App\Models\ImgUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 
 class ImgUploadsController extends Controller
 {
     public function list() {
         $images = ImgUpload::all()->sortByDesc('created_at');
+
+        $files = Storage::disk('public')->files('images/api');
         
-        return view('imgDash', compact('images')); 
+        return view('imgDash', compact('images', 'files')); 
     }
 
     public function upload(Request $request) {
@@ -51,5 +55,17 @@ class ImgUploadsController extends Controller
 
         $images = ImgUpload::all()->sortByDesc('created_at');
         return view('imgDash', compact('images'));
+    }
+
+    public function apiImageDelete($filename) {
+
+        $path = 'images/api/' . $filename;
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+            return back()->with('success', 'Image deleted.');
+        }
+
+        return back()->with('error', 'Image not found.');
     }
 }

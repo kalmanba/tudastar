@@ -73,6 +73,41 @@
                             </table>
                         </details>
                     </div>
+                    <div class="card">
+                        <div class="card-header">API </div>
+                        <details style="margin: 10px 20px;">
+                            <summary>Képek</summary>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Preview</th>
+                                        <th>Filename</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($files as $file)
+                                        <tr>
+                                            <td><img width="80%" src="{{ asset('storage/' . $file) }}" alt=""></td>
+                                            <td>{{ basename($file) }}</td>
+                                            <td>
+                                                <form action="{{ route('images.destroy', basename($file)) }}" method="POST"
+                                                    onsubmit="return confirm('Delete this image?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3">No images uploaded yet.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </details>
+                    </div>
                     <form method="POST" action="/logout">
                         @csrf
                         <button class=" mt-4 btn btn-primary">Kilépés</button>
@@ -82,7 +117,7 @@
         </div>
     </div>
     <script>
-            document.getElementById("imgPath").addEventListener("click", function () {
+        document.getElementById("imgPath").addEventListener("click", function () {
             const content = this.innerHTML;
 
             // Create a temporary textarea to copy the content
@@ -93,6 +128,6 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
 
-      });
+        });
     </script>
 @endsection
