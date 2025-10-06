@@ -31,6 +31,13 @@
                             </tr>
                             </thead>
                             <tbody class="table-group-divider">
+
+                            <tr>
+                                <th scope="row">2025. okt</th>
+                                <td>- 1.092 Ft</td>
+                                <td>4.758Ft</td>
+                                <td><a href="https://cloud.kurthy.org/s/otZXidgXEHXXJog"><button class="button-bg btn btn-info">Megnézem</button></a></td>
+                            </tr>
                             
                             <tr>
                                 <th scope="row">2025. jan</th>
